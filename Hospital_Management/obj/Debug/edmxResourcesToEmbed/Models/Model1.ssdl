@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DbHospitalModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Appointments">
+    <Key>
+      <PropertyRef Name="AppoinmentID" />
+    </Key>
+    <Property Name="AppoinmentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PatientID" Type="int" Nullable="false" />
+    <Property Name="DoctorID" Type="int" Nullable="false" />
+    <Property Name="AppointmentDate" Type="datetime" />
+    <Property Name="Notes" Type="varchar" MaxLength="255" />
+    <Property Name="Status" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="RadiologyImages">
+    <Key>
+      <PropertyRef Name="ImageID" />
+    </Key>
+    <Property Name="ImageID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PatientID" Type="int" Nullable="false" />
+    <Property Name="ImagePath" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="255" />
+    <Property Name="UploadedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="UploadDate" Type="datetime" />
+    <Property Name="PatientIdentityNumber" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="TblAdmin">
+    <Key>
+      <PropertyRef Name="AdminID" />
+    </Key>
+    <Property Name="AdminID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AdminName" Type="varchar" MaxLength="30" />
+    <Property Name="AdminSurname" Type="varchar" MaxLength="30" />
+    <Property Name="AdminEMail" Type="varchar" MaxLength="50" />
+    <Property Name="AdminPhoneNumber" Type="varchar" MaxLength="12" />
+    <Property Name="AdminIdentityNumber" Type="varchar" MaxLength="11" />
+    <Property Name="AdminPassword" Type="varchar" MaxLength="11" />
+  </EntityType>
+  <EntityType Name="TblDoctor">
+    <Key>
+      <PropertyRef Name="DoctorID" />
+    </Key>
+    <Property Name="DoctorID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="50" />
+    <Property Name="LastName" Type="varchar" MaxLength="50" />
+    <Property Name="Specialization" Type="varchar" MaxLength="50" />
+    <Property Name="PhoneNumber" Type="varchar" MaxLength="50" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="Department" Type="varchar" MaxLength="50" />
+    <Property Name="WorkHours" Type="varchar" MaxLength="50" />
+    <Property Name="Salary" Type="varchar" MaxLength="50" />
+    <Property Name="Status" Type="varchar" MaxLength="50" />
+    <Property Name="DoctorIdentityNumber" Type="varchar" MaxLength="11" />
+    <Property Name="DoctorPassword" Type="varchar" MaxLength="11" />
+  </EntityType>
+  <EntityType Name="TblNurse">
+    <Key>
+      <PropertyRef Name="NurseID" />
+    </Key>
+    <Property Name="NurseID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="50" />
+    <Property Name="LastName" Type="varchar" MaxLength="50" />
+    <Property Name="PhoneNumber" Type="varchar" MaxLength="50" />
+    <Property Name="Email" Type="varchar" MaxLength="10" />
+    <Property Name="Department" Type="varchar" MaxLength="50" />
+    <Property Name="Shift" Type="varchar" MaxLength="50" />
+    <Property Name="Status" Type="varchar" MaxLength="50" />
+    <Property Name="NurseIdentityNumber" Type="varchar" MaxLength="11" Nullable="false" />
+    <Property Name="NursePassword" Type="varchar" MaxLength="11" />
+  </EntityType>
+  <EntityType Name="TblPatient">
+    <Key>
+      <PropertyRef Name="PatientID" />
+    </Key>
+    <Property Name="PatientID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DateOfBirth" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Gender" Type="varchar" MaxLength="10" />
+    <Property Name="PhoneNumber" Type="varchar" MaxLength="50" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="Address" Type="varchar" MaxLength="50" />
+    <Property Name="MedicalHistory" Type="varchar" MaxLength="50" />
+    <Property Name="BloodType" Type="varchar" MaxLength="50" />
+    <Property Name="Insurance" Type="bit" />
+    <Property Name="AdmissionDate" Type="datetime" />
+    <Property Name="DischarDate" Type="datetime" />
+    <Property Name="Status" Type="varchar" MaxLength="50" />
+    <Property Name="EmergencyStatus" Type="varchar" MaxLength="50" />
+    <Property Name="Height" Type="varchar" MaxLength="50" />
+    <Property Name="Weight" Type="varchar" MaxLength="50" />
+    <Property Name="PatientIdentityNumber" Type="varchar" MaxLength="11" Nullable="false" />
+    <Property Name="DoctorID" Type="int" />
+    <Property Name="Notes" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TblReceptionist">
+    <Key>
+      <PropertyRef Name="ReceptionisID" />
+    </Key>
+    <Property Name="ReceptionisID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="50" />
+    <Property Name="LastName" Type="varchar" MaxLength="50" />
+    <Property Name="PhoneNumber" Type="varchar" MaxLength="50" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="Shift" Type="varchar" MaxLength="50" />
+    <Property Name="Status" Type="varchar" MaxLength="50" />
+    <Property Name="ReceptionistIdentityNumber" Type="varchar" MaxLength="50" />
+    <Property Name="ReceptionistPassword" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK__Appointme__Docto__2B0A656D">
+    <End Role="TblDoctor" Type="Self.TblDoctor" Multiplicity="1" />
+    <End Role="Appointments" Type="Self.Appointments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblDoctor">
+        <PropertyRef Name="DoctorID" />
+      </Principal>
+      <Dependent Role="Appointments">
+        <PropertyRef Name="DoctorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Appointme__Patie__2A164134">
+    <End Role="TblPatient" Type="Self.TblPatient" Multiplicity="1" />
+    <End Role="Appointments" Type="Self.Appointments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblPatient">
+        <PropertyRef Name="PatientID" />
+      </Principal>
+      <Dependent Role="Appointments">
+        <PropertyRef Name="PatientID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Patient_Doctor">
+    <End Role="TblDoctor" Type="Self.TblDoctor" Multiplicity="0..1" />
+    <End Role="TblPatient" Type="Self.TblPatient" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblDoctor">
+        <PropertyRef Name="DoctorID" />
+      </Principal>
+      <Dependent Role="TblPatient">
+        <PropertyRef Name="DoctorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RadiologyImages_Patients">
+    <End Role="TblPatient" Type="Self.TblPatient" Multiplicity="1" />
+    <End Role="RadiologyImages" Type="Self.RadiologyImages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblPatient">
+        <PropertyRef Name="PatientID" />
+      </Principal>
+      <Dependent Role="RadiologyImages">
+        <PropertyRef Name="PatientID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DbHospitalModelStoreContainer">
+    <EntitySet Name="Appointments" EntityType="Self.Appointments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RadiologyImages" EntityType="Self.RadiologyImages" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TblAdmin" EntityType="Self.TblAdmin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TblDoctor" EntityType="Self.TblDoctor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TblNurse" EntityType="Self.TblNurse" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TblPatient" EntityType="Self.TblPatient" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TblReceptionist" EntityType="Self.TblReceptionist" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Appointme__Docto__2B0A656D" Association="Self.FK__Appointme__Docto__2B0A656D">
+      <End Role="TblDoctor" EntitySet="TblDoctor" />
+      <End Role="Appointments" EntitySet="Appointments" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Appointme__Patie__2A164134" Association="Self.FK__Appointme__Patie__2A164134">
+      <End Role="TblPatient" EntitySet="TblPatient" />
+      <End Role="Appointments" EntitySet="Appointments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Patient_Doctor" Association="Self.FK_Patient_Doctor">
+      <End Role="TblDoctor" EntitySet="TblDoctor" />
+      <End Role="TblPatient" EntitySet="TblPatient" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RadiologyImages_Patients" Association="Self.FK_RadiologyImages_Patients">
+      <End Role="TblPatient" EntitySet="TblPatient" />
+      <End Role="RadiologyImages" EntitySet="RadiologyImages" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,190 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DbHospitalModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="RadiologyImages">
+    <Key>
+      <PropertyRef Name="ImageID" />
+    </Key>
+    <Property Name="ImageID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PatientID" Type="Int32" Nullable="false" />
+    <Property Name="ImagePath" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="UploadedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="UploadDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="TblPatient" Relationship="Self.FK_RadiologyImages_Patients" FromRole="RadiologyImages" ToRole="TblPatient" />
+    <Property Name="PatientIdentityNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="TblAdmin">
+    <Key>
+      <PropertyRef Name="AdminID" />
+    </Key>
+    <Property Name="AdminID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AdminName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="AdminSurname" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="AdminEMail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AdminPhoneNumber" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="AdminIdentityNumber" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+    <Property Name="AdminPassword" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="TblDoctor">
+    <Key>
+      <PropertyRef Name="DoctorID" />
+    </Key>
+    <Property Name="DoctorID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Specialization" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Department" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="WorkHours" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Salary" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DoctorIdentityNumber" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+    <Property Name="DoctorPassword" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TblPatient" Relationship="DbHospitalModel.FK_Patient_Doctor" FromRole="TblDoctor" ToRole="TblPatient" />
+    <NavigationProperty Name="Appointments" Relationship="DbHospitalModel.FK__Appointme__Docto__2B0A656D" FromRole="TblDoctor" ToRole="Appointments" />
+  </EntityType>
+  <EntityType Name="TblNurse">
+    <Key>
+      <PropertyRef Name="NurseID" />
+    </Key>
+    <Property Name="NurseID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Department" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Shift" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NurseIdentityNumber" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NursePassword" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="TblPatient">
+    <Key>
+      <PropertyRef Name="PatientID" />
+    </Key>
+    <Property Name="PatientID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DateOfBirth" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Gender" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MedicalHistory" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="BloodType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Insurance" Type="Boolean" />
+    <Property Name="AdmissionDate" Type="DateTime" Precision="3" />
+    <Property Name="DischarDate" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EmergencyStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Height" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Weight" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PatientIdentityNumber" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="RadiologyImages" Relationship="Self.FK_RadiologyImages_Patients" FromRole="TblPatient" ToRole="RadiologyImages" />
+    <Property Name="DoctorID" Type="Int32" />
+    <NavigationProperty Name="TblDoctor" Relationship="DbHospitalModel.FK_Patient_Doctor" FromRole="TblPatient" ToRole="TblDoctor" />
+    <Property Name="Notes" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Appointments" Relationship="DbHospitalModel.FK__Appointme__Patie__2A164134" FromRole="TblPatient" ToRole="Appointments" />
+  </EntityType>
+  <EntityType Name="TblReceptionist">
+    <Key>
+      <PropertyRef Name="ReceptionisID" />
+    </Key>
+    <Property Name="ReceptionisID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Shift" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ReceptionistIdentityNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ReceptionistPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK_RadiologyImages_Patients">
+    <End Role="TblPatient" Type="Self.TblPatient" Multiplicity="1" />
+    <End Role="RadiologyImages" Type="Self.RadiologyImages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblPatient">
+        <PropertyRef Name="PatientID" />
+      </Principal>
+      <Dependent Role="RadiologyImages">
+        <PropertyRef Name="PatientID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DbHospitalEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="RadiologyImages" EntityType="Self.RadiologyImages" />
+    <EntitySet Name="TblAdmin" EntityType="Self.TblAdmin" />
+    <EntitySet Name="TblDoctor" EntityType="Self.TblDoctor" />
+    <EntitySet Name="TblNurse" EntityType="Self.TblNurse" />
+    <EntitySet Name="TblPatient" EntityType="Self.TblPatient" />
+    <EntitySet Name="TblReceptionist" EntityType="Self.TblReceptionist" />
+    <AssociationSet Name="FK_RadiologyImages_Patients" Association="Self.FK_RadiologyImages_Patients">
+      <End Role="TblPatient" EntitySet="TblPatient" />
+      <End Role="RadiologyImages" EntitySet="RadiologyImages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Patient_Doctor" Association="DbHospitalModel.FK_Patient_Doctor">
+      <End Role="TblDoctor" EntitySet="TblDoctor" />
+      <End Role="TblPatient" EntitySet="TblPatient" />
+    </AssociationSet>
+    <EntitySet Name="Appointments" EntityType="DbHospitalModel.Appointments" />
+    <AssociationSet Name="FK__Appointme__Docto__2B0A656D" Association="DbHospitalModel.FK__Appointme__Docto__2B0A656D">
+      <End Role="TblDoctor" EntitySet="TblDoctor" />
+      <End Role="Appointments" EntitySet="Appointments" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Appointme__Patie__2A164134" Association="DbHospitalModel.FK__Appointme__Patie__2A164134">
+      <End Role="TblPatient" EntitySet="TblPatient" />
+      <End Role="Appointments" EntitySet="Appointments" />
+    </AssociationSet>
+  </EntityContainer>
+  <Association Name="FK_Patient_Doctor">
+    <End Type="DbHospitalModel.TblDoctor" Role="TblDoctor" Multiplicity="0..1" />
+    <End Type="DbHospitalModel.TblPatient" Role="TblPatient" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblDoctor">
+        <PropertyRef Name="DoctorID" />
+      </Principal>
+      <Dependent Role="TblPatient">
+        <PropertyRef Name="DoctorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Appointments">
+    <Key>
+      <PropertyRef Name="AppoinmentID" />
+    </Key>
+    <Property Name="AppoinmentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PatientID" Type="Int32" Nullable="false" />
+    <Property Name="DoctorID" Type="Int32" Nullable="false" />
+    <Property Name="AppointmentDate" Type="DateTime" Precision="3" />
+    <Property Name="Notes" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TblDoctor" Relationship="DbHospitalModel.FK__Appointme__Docto__2B0A656D" FromRole="Appointments" ToRole="TblDoctor" />
+    <NavigationProperty Name="TblPatient" Relationship="DbHospitalModel.FK__Appointme__Patie__2A164134" FromRole="Appointments" ToRole="TblPatient" />
+  </EntityType>
+  <Association Name="FK__Appointme__Docto__2B0A656D">
+    <End Type="DbHospitalModel.TblDoctor" Role="TblDoctor" Multiplicity="1" />
+    <End Type="DbHospitalModel.Appointments" Role="Appointments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblDoctor">
+        <PropertyRef Name="DoctorID" />
+      </Principal>
+      <Dependent Role="Appointments">
+        <PropertyRef Name="DoctorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Appointme__Patie__2A164134">
+    <End Type="DbHospitalModel.TblPatient" Role="TblPatient" Multiplicity="1" />
+    <End Type="DbHospitalModel.Appointments" Role="Appointments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblPatient">
+        <PropertyRef Name="PatientID" />
+      </Principal>
+      <Dependent Role="Appointments">
+        <PropertyRef Name="PatientID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

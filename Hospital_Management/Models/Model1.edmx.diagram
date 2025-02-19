@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f05da0c47cbd48a895da9c6afc61d7c1" Name="Diagram1" ZoomLevel="73">
+        <EntityTypeShape EntityType="DbHospitalModel.RadiologyImages" Width="1.875" PointX="3" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbHospitalModel.TblAdmin" Width="1.5" PointX="5" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbHospitalModel.TblDoctor" Width="1.5" PointX="2.875" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbHospitalModel.TblNurse" Width="1.5" PointX="5.125" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbHospitalModel.TblPatient" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbHospitalModel.TblReceptionist" Width="1.5" PointX="6.875" PointY="2.125" IsExpanded="true" />
+        <AssociationConnector Association="DbHospitalModel.FK_RadiologyImages_Patients" ManuallyRouted="false" />
+        <AssociationConnector Association="DbHospitalModel.FK_Patient_Doctor" />
+        <EntityTypeShape EntityType="DbHospitalModel.Appointments" Width="1.5" PointX="7.25" PointY="5.375" />
+        <AssociationConnector Association="DbHospitalModel.FK__Appointme__Docto__2B0A656D" />
+        <AssociationConnector Association="DbHospitalModel.FK__Appointme__Patie__2A164134" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
