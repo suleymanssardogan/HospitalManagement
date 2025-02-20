@@ -1,10 +1,15 @@
 **Log In Page:**
+
 ![image](https://github.com/user-attachments/assets/a529b69f-2235-4be4-bbfa-202d5ac58ebb)
 
+
 **Forgot Password:**
+
 ![image](https://github.com/user-attachments/assets/efc1e12d-8350-4ae3-ab2c-6c540d21dc14)
 
+
 **Menu**
+
 ![image](https://github.com/user-attachments/assets/976c8fb9-b4ef-41ae-8e31-be1ac7bdd96a)
 
 **Doctors**
@@ -42,6 +47,8 @@
 
 **Appoinment**
 ![image](https://github.com/user-attachments/assets/9e7d5926-762e-498f-be25-f6e41ec424b0)
+
+
 
 **Load**
 ![image](https://github.com/user-attachments/assets/0b79f1aa-2b31-4877-91c1-f8f494f1842b)
