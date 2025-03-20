@@ -25,7 +25,7 @@ namespace Hospital_Management
         //6.35 BROKEN CLOUDS
         private const string connection = "http://api.openweathermap.org/data/2.5/weather?q=Istanbul,TR&mode=xml&units=metric&APPID=5d16f3ff8912e14e9ab6c19fab124fb3";
 
-        private const string key = "5d16f3ff8912e14e9ab6c19fab124fb3";
+        private const string key = "your_api_key";
        // private const string connection = "http://api.openweathermap.org/data/2.5/weather?q=Elazig,TR&mode=xml&units=metric&APPID=5d16f3ff8912e14e9ab6c19fab124fb3";
        // private const string connection = "http://api.openweathermap.org/data/2.5/weather?q=Elazig,TR&mode=xml&units=metric&APPID=5d16f3ff8912e14e9ab6c19fab124fb3&ts=" + DateTime.UtcNow.Ticks;
 
